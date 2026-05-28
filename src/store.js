@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./reduxSlice/countSlice.js"
-import userReducer from "./reduxSlice/userSlice.js"
+import CounterReducer from "./slice/CounterSlice"
 
-let store = configureStore({
+const store = configureStore({
     reducer:{
-        counter:counterReducer,
-        user:userReducer
+        counter:CounterReducer,
+        cart:CartReducer
     }
 })
+
 
 export default store

@@ -1,31 +1,18 @@
 import { useSelector,useDispatch } from "react-redux";
-import {increment,decrement,reset} from "./reduxSlice/countSlice.js"
+import { increment,decrement,reset } from "./slice/CounterSlice";
 
 const App = () => {
 
-  let count = useSelector(state => state.counter.count)
-  let user = useSelector(state=> state.user.user)
+  let count = useSelector((state) => state.counter.count)
   let dispatch = useDispatch()
-  console.log(count);
-
   return (
-    <div className="border m-50">
-      <h1 className="text-center text-3xl my-8">{count}</h1>
-      <div className="flex justify-center">
-        <button className="btn" onClick={() => dispatch(increment())}>Increment</button>
-      <button className="btn" onClick={() => dispatch(decrement())}>Decrement</button>
-      <button className="btn" onClick={() => dispatch(reset())}>Reset</button>
-      </div>
-
-
-      <div>
-        <form>
-          Name:<input type="text"  />
-          
-        </form>
-      </div>
+    <div className="flex justify-center flex-col">
+      <h2>Count:{count}</h2>
+      <button onClick={()=>dispatch(increment())}>Increment</button>
+      <button onClick={()=>dispatch(decrement())}>decremnt</button>
+      <button onClick={()=>dispatch(reset())}>reset</button>
     </div>
-  );
+  )
 };
 
 export default App;
